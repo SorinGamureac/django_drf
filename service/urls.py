@@ -21,9 +21,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from library.views import AuthorModelViewSets
+# from library.usersapp.views import MyUserModelViewSets
+# from library.views import MyUserModelViewSets
 
 router = DefaultRouter()
 router.register('authors', AuthorModelViewSets)
+# router.register('userapp', MyUserModelViewSets)
 
 
 urlpatterns = [
