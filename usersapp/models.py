@@ -7,6 +7,6 @@ class MyUser(AbstractUser):
     email_name = models.EmailField(unique=True, max_length=150)
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    birthday_year = models.PositiveIntegerField()
+    birthday_year = models.PositiveIntegerField(null=True, blank=True)
 
 
