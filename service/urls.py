@@ -22,11 +22,18 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from library.views import AuthorModelViewSets
 from usersapp.views import MyUserModelViewSets
+from library.views import ToDoViewSet, ProjectViewSet, BiographyModelViewSets, BookModelViewSets, ArticleModelViewSets
+
 # from library.views import MyUserModelViewSets
 
 router = DefaultRouter()
 router.register('authors', AuthorModelViewSets)
-router.register('userapp', MyUserModelViewSets)
+router.register('usersapp', MyUserModelViewSets)
+router.register('biography', BiographyModelViewSets)
+router.register('book', BookModelViewSets)
+router.register('article', ArticleModelViewSets)
+router.register('todos', ToDoViewSet)
+router.register('projects', ProjectViewSet)
 
 
 urlpatterns = [

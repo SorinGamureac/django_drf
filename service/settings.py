@@ -31,17 +31,20 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
-    'library.apps.LibraryConfig',
-    'usersapp.apps.UsersappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # other
     'rest_framework',
     'django.contrib.sites',
-    # 'library.usersapp',
+    'corsheaders',
+    # my
+    'library.apps.LibraryConfig',
+    'usersapp.apps.UsersappConfig',
+
 ]
 
 
@@ -49,6 +52,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,3 +132,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'usersapp.MyUser'
+
+CORS_ALLOWED_ORIGINS = [
+   "http://localhost:3000",
+]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
